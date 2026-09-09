@@ -1,2 +1,15 @@
-%h1 Main#contacts
-= link_to '← Back to Main', root_path, class: 'back-link'
+.static-page
+  %h1.static-title= t('contacts.title')
+
+  .contact-list
+    .contact-row
+      %span.contact-label= t('contacts.author')
+      %span.contact-value= t('about.author_name')
+
+    .contact-row
+      %span.contact-label GitHub
+      = link_to "github.com/korshunovti", "https://github.com/korshunovti",
+        class: "contact-link", target: "_blank", rel: "noopener"
+
+
+

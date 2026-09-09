@@ -1,0 +1,135 @@
+// Страницы входа и регистрации
+
+.auth-body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: #ece7f5;
+  background: #17102b;
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(126, 58, 176, 0.45), transparent 55%),
+    radial-gradient(circle at 85% 78%, rgba(196, 52, 141, 0.35), transparent 50%);
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 36px 32px;
+  border-radius: 18px;
+  background: #241a3d;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.auth-title {
+  margin: 0 0 28px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.auth-alert {
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #ffd9e2;
+  background: rgba(214, 51, 108, 0.22);
+}
+
+.auth-field {
+  margin-bottom: 18px;
+}
+
+.auth-label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a99cc4;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 13px 15px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #1b1430;
+  background: #eef2fb;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: border-color 0.15s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #c33ba6;
+  }
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #b93ac4, #e0409a);
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+
+  &:focus-visible {
+    outline: 3px solid #f0a8dd;
+    outline-offset: 2px;
+  }
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.auth-ghost {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ece7f5;
+  text-decoration: none;
+  border-radius: 9px;
+  background: #33254f;
+
+  &:hover {
+    background: #3d2c5e;
+    color: #fff;
+  }
+}
+
+.auth-lang a {
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #a99cc4;
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+  .auth-errors {
+    margin: 0;
+    padding-left: 18px;
+  }
+}

@@ -1,0 +1,45 @@
+.stage{ data: { gallery_target: "stage" } }
+  .stage-head
+    %h1.stage-title= t('gallery.best_of')
+    %select.year-select{ data: { gallery_target: "themeSelect", action: "change->gallery#selectTheme" } }
+      %option{ value: "" }= t('gallery.select_prompt')
+      - @themes.each do |theme|
+        %option{ value: theme.id }= theme.display_name
+
+  .stage-body.is-hidden{ data: { gallery_target: "viewer" } }
+    %button.nav-arrow.nav-arrow--prev{ data: { action: "click->gallery#prev" }, type: "button", "aria-label": t('gallery.prev') }
+      %i.fas.fa-chevron-left
+
+    .poster
+      .poster-frame
+        %img.poster-img{ data: { gallery_target: "image" }, alt: "" }
+        %button.fav-btn{ data: { gallery_target: "favBtn", action: "click->gallery#toggleFavorite" }, type: "button", "aria-label": t('gallery.favorite') }
+          %i.fas.fa-heart
+      %h2.poster-name{ data: { gallery_target: "imageName" } }
+
+    %button.nav-arrow.nav-arrow--next{ data: { action: "click->gallery#next" }, type: "button", "aria-label": t('gallery.next') }
+      %i.fas.fa-chevron-right
+
+  .stage-panel.is-hidden{ data: { gallery_target: "panel" } }
+    .score-row
+      %span.score-label= t('gallery.average')
+      %span.score-big{ data: { gallery_target: "aveValue" } } —
+
+    .rate-scale{ data: { gallery_target: "rateScale" } }
+      %label.rate-caption{ for: "rate-slider" }= t('gallery.your_rating')
+      .slider-wrap
+        %input#rate-slider.slider{ type: "range", min: "1", max: "10", step: "0.1", value: "5",
+          data: { gallery_target: "slider", action: "input->gallery#previewValue" } }
+        %output.slider-bubble{ data: { gallery_target: "sliderValue" } } 5.0
+      %button.rate-submit{ data: { action: "click->gallery#rate" }, type: "button" }= t('gallery.submit_rating')
+
+    .rate-done{ data: { gallery_target: "rateDone" } }
+      %span.rate-caption= t('gallery.your_rating')
+      %strong.rate-mine{ data: { gallery_target: "userValue" } }
+      %button.rate-change{ data: { action: "click->gallery#changeRating" }, type: "button" }= t('gallery.change')
+
+    %p.rate-status{ data: { gallery_target: "rateStatus" } }
+
+    %p.total-line
+      = t('gallery.total_values')
+      %span{ data: { gallery_target: "valuesQty" } }= @values_qty

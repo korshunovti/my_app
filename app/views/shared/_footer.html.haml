@@ -1,6 +1,5 @@
 %footer
   .container
-    %p © 2026 My App. Все права защищены.
     %nav
-      = link_to "О нас", main_about_path
-      = link_to "Контакты", main_contacts_path
+      = link_to t('layout.about'), main_about_path
+      = link_to t('layout.contacts'), main_contacts_path

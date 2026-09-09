@@ -1,0 +1,11 @@
+.rating-page
+  %h1.fav-title= t('rating.title')
+
+  %section.rating-block
+    %h2.rating-head= t('rating.overall')
+    = render 'table', titles: @overall
+
+  - @by_theme.each do |theme, titles|
+    %section.rating-block
+      %h2.rating-head= "#{t('rating.year')} #{theme.display_name}"
+      = render 'table', titles: titles

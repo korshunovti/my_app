@@ -1,12 +1,13 @@
 !!!
 %html
   %head
-    %title My App
+    %link{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" }
+    %title Ani Rate
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  %body
+  %body{ data: { controller: "gallery" } }
     = render 'shared/header'
     .container
       = yield

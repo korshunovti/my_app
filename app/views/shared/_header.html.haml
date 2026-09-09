@@ -1,11 +1,18 @@
 %header
   .container
     %nav
-      = link_to "My App", main_index_path, class: "logo"
+      = link_to "Ani Rate", root_path, class: "logo"
       %ul
-        %li
-          = link_to "Главная", root_path
-        %li
-          = link_to "О нас", main_about_path
-        %li
-          = link_to "Контакты", main_contacts_path
+        - if signed_in?
+          %li= link_to t('rating.link'), rating_path
+          %li= link_to t('favorites.link'), favorites_path
+          %li.logged= gravatar_for current_user, size: 30
+          %li= link_to current_user.name, current_user
+          %li= link_to t('layout.sign_out'), signout_path, data: { turbo_method: :delete }
+        - else
+          %li= link_to t('layout.sign_in'), signin_path
+          %li= link_to t('layout.sign_up'), signup_path
+
+        %li.lang
+          %a{ href: "#", data: { action: "click->gallery#switchLocale", locale: "ru" } } RU
+          %a{ href: "#", data: { action: "click->gallery#switchLocale", locale: "en" } } EN

@@ -1,10 +1,45 @@
-%h1 Editing user
+.profile
+  .profile-card.profile-card--wide
+    %h1.profile-title= t('profile.edit')
 
-= render "form", user: @user
+    = form_with model: @user, local: true do |f|
+      - if @user.errors.any?
+        .auth-alert
+          %ul.auth-errors
+            - @user.errors.full_messages.each do |msg|
+              %li= msg
 
-%br
+      .auth-field
+        = f.label :name, t('users.name'), class: "auth-label"
+        = f.text_field :name, class: "auth-input"
 
-%div
-  = link_to "Show this user", @user
-  |
-  = link_to "Back to users", users_path
+      .auth-field
+        = f.label :email, t('users.email'), class: "auth-label"
+        = f.email_field :email, class: "auth-input"
+
+      %hr.profile-sep
+
+      %p.profile-hint= t('profile.password_hint')
+
+      .auth-field
+        = f.label :current_password, t('profile.current_password'), class: "auth-label"
+        = password_field_tag "user[current_password]", nil, class: "auth-input", autocomplete: "current-password"
+
+      .auth-field
+        = f.label :password, t('profile.new_password'), class: "auth-label"
+        = f.password_field :password, class: "auth-input", autocomplete: "new-password"
+
+      .auth-field
+        = f.label :password_confirmation, t('users.password_confirmation'), class: "auth-label"
+        = f.password_field :password_confirmation, class: "auth-input", autocomplete: "new-password"
+
+      = f.submit t('profile.save'), class: "auth-submit"
+
+    .profile-links
+      = link_to t('profile.cancel'), user_path(@user), class: "btn-ghost"
+
+  .danger-zone
+    %h2.danger-title= t('profile.danger')
+    %p.danger-text= t('profile.delete_warning')
+    = link_to t('profile.delete'), user_path(@user), class: "btn-danger",
+      data: { turbo_method: :delete, turbo_confirm: t('profile.delete_confirm') }

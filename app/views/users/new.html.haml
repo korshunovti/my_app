@@ -1,8 +1,10 @@
-%h1 New user
+.auth-card
+  %h1.auth-title= t('layout.sign_up')
 
-= render "form", user: @user
+  = render 'form'
 
-%br
-
-%div
-  = link_to "Back to users", users_path
+  .auth-links
+    = link_to t('sessions.title'), signin_path, class: "auth-ghost"
+    %span.auth-lang
+      = link_to "RU", url_for(locale: :ru)
+      = link_to "EN", url_for(locale: :en)

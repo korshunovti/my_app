@@ -3,4 +3,4 @@ import "controllers"
 import jQuery from "jquery"
 import "bootstrap"
 
-window.$ = window.jQuery = jQuery
+window.$ = window.jQuery = jQuery;

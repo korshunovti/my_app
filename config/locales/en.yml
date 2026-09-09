@@ -1,31 +1,87 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  layout:
+    about: "About"
+    contacts: "Contacts"
+    sign_in: "Sign in"
+    sign_up: "Sign up"
+    sign_out: "Sign out"
+
+  gallery:
+    total_values: "Ratings:"
+    best_of: "Best anime of"
+    select_prompt: "pick a year"
+    submit_rating: "Rate"
+    prev: "Previous"
+    next: "Next"
+    favorite: "Add to favorites"
+    change: "Change"
+    total_values: "Ratings:"
+    average: "Average rating:"
+    your_rating: "Your rating:"
+    error: "Error while saving"
+    auth_required: "Sign in required"
+
+  rating:
+    title: "Rating"
+    link: "Rating"
+    overall: "All-time top 10"
+    year: "Top 10 of"
+    not_enough: "Not enough ratings yet."
+    votes:
+      one: "%{count} rating"
+      other: "%{count} ratings"
+  about:
+    title: "About"
+    lead: "Ani Rate is an anime rating service. Browse titles by release year, score them from 1 to 10, and build your own list of favorites."
+    how_head: "How it works"
+    how_text: "Pick a year, flip through the titles released in it, and rate the ones you have seen. Ratings from all users are averaged into an overall ranking: a top 10 for each year and a top 10 of all time. Only titles with at least three ratings make the ranking, so a single opinion cannot skew the results."
+    tech_head: "Built with"
+    author_head: "Author"
+    author_name: "Timofey Korshunov"
+    author_place: "Peter the Great St. Petersburg Polytechnic University"
+
+    contacts:
+      title: "Contacts"
+      lead: "Questions about the project are welcome."
+      author: "Author"
+      place: "University"
+  profile:
+    current_password: "Current password"
+    wrong_current: "is incorrect"
+    edit: "Edit profile"
+    save: "Save"
+    cancel: "Cancel"
+    updated: "Profile updated"
+    deleted: "Account deleted"
+    forbidden: "Access denied"
+    to_gallery: "To anime"
+    rated: "rated"
+    favorited: "in favorites"
+    new_password: "New password"
+    password_hint: "Leave blank to keep your current password."
+    danger: "Delete account"
+    delete: "Delete account"
+    delete_warning: "All your ratings and favorites will be permanently deleted."
+    delete_confirm: "Delete your account? This cannot be undone."
+  favorites:
+    title: "Favorites"
+    empty: "Nothing here yet. Add anime with the heart button."
+    link: "Favorites"
+  sessions:
+    title: "Sign in"
+    email: "Email"
+    password: "Password"
+    submit: "Sign in"
+    no_account: "No account?"
+    invalid: "Invalid email or password"
+    signed_in: "Signed in successfully"
+    signed_out: "Signed out"
+    please_sign_in: "Please sign in"
+
+  users:
+    name: "Name"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    create_account: "Create account"
+    registered: "Registration successful"

@@ -1,2 +1,18 @@
-%h1 Main#about
-= link_to '← Back to Main', root_path, class: 'back-link'
+.static-page
+  %h1.static-title= t('about.title')
+
+  %p.static-lead= t('about.lead')
+
+  %section.static-block
+    %h2.static-head= t('about.how_head')
+    %p= t('about.how_text')
+
+
+
+  %section.static-block
+    %h2.static-head= t('about.author_head')
+    %p
+      = t('about.author_name')
+      %br
+      = t('about.author_place')
+

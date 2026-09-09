@@ -1,0 +1,16 @@
+.fav-page
+  %h1.fav-title= t('favorites.title')
+
+  - if @titles.empty?
+    %p.fav-empty= t('favorites.empty')
+  - else
+    .fav-grid
+      - @titles.each do |title|
+        .fav-card
+          = image_tag "/assets/#{ERB::Util.url_encode(title.file)}", alt: title.display_name, class: "fav-img"
+          .fav-info
+            %h3.fav-name= title.display_name
+            %p.fav-meta
+              = title.theme.display_name
+              - if title.ave_value.present?
+                %span.fav-score= title.ave_value.round(1)

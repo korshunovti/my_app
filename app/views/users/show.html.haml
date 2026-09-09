@@ -1,10 +1,17 @@
-%p{style: "color: green"}= notice
+.profile
+  .profile-card
+    = gravatar_for @user, size: 96
+    %h1.profile-name= @user.name
+    %p.profile-email= @user.email
 
-= render @user
+    .profile-stats
+      .profile-stat
+        %span.profile-num= @user.values.count
+        %span.profile-cap= t('profile.rated')
+      .profile-stat
+        %span.profile-num= @user.favorites.count
+        %span.profile-cap= t('profile.favorited')
 
-%div
-  = link_to "Edit this user", edit_user_path(@user)
-  |
-  = link_to "Back to users", users_path
-
-  = button_to "Destroy this user", @user, method: :delete
+    .profile-actions
+      = link_to t('profile.edit'), edit_user_path(@user), class: "btn-primary-soft"
+      = link_to t('profile.to_gallery'), root_path, class: "btn-ghost"

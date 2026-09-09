@@ -1,0 +1,22 @@
+.auth-card
+  %h1.auth-title= t('sessions.title')
+
+  - if flash[:alert]
+    .auth-alert= flash[:alert]
+
+  = form_with url: sessions_path, scope: :session, local: true, html: { class: "auth-form" } do |f|
+    .auth-field
+      = f.label :email, t('sessions.email'), class: "auth-label"
+      = f.email_field :email, class: "auth-input", autofocus: true, autocomplete: "email"
+
+    .auth-field
+      = f.label :password, t('sessions.password'), class: "auth-label"
+      = f.password_field :password, class: "auth-input", autocomplete: "current-password"
+
+    = f.submit t('sessions.submit'), class: "auth-submit"
+
+  .auth-links
+    = link_to t('layout.sign_up'), signup_path, class: "auth-ghost"
+    %span.auth-lang
+      = link_to "RU", url_for(locale: :ru)
+      = link_to "EN", url_for(locale: :en)
