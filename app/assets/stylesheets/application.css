@@ -1,15 +1,45 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f7f6;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Ссылка "Назад" в левом верхнем углу */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Контейнер меню в правом нижнем углу */
+.menu-nav {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.menu-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+.menu-nav a {
+    text-decoration: none;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.menu-nav a:hover {
+    background-color: #2980b9;
+}
