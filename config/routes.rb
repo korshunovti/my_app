@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :values
+  resources :anime_titles
+  resources :themes
   resources :users
   get 'main/index'
   get 'main/help'

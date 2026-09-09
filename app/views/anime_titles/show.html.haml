@@ -1,0 +1,20 @@
+%p{style: "color: green"}= notice
+
+= render @anime_title
+
+%div
+  = link_to "Edit this anime title", edit_anime_title_path(@anime_title)
+  |
+  = link_to "Back to anime titles", anime_titles_path
+
+  = button_to "Destroy this anime title", @anime_title, method: :delete
+
+%h3 Поставить оценку:
+= form_with(model: Value.new, local: true) do |f|
+  = f.hidden_field :anime_title_id, value: @anime_title.id
+  = f.hidden_field :user_id, value: User.first.id # Берем первого юзера как текущего
+  .field
+    = f.label :value, "Оценка (1-10)"
+    = f.number_field :value, min: 1, max: 10
+  .actions
+    = f.submit "Отправить"
