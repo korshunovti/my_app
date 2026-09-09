@@ -11,14 +11,19 @@
 
   .auth-field
     = f.label :email, t('users.email'), class: "auth-label"
-    = f.email_field :email, class: "auth-input", autocomplete: "email"
+    = f.email_field :email, class: "auth-input", autocomplete: "email",
+      required: true, pattern: ".+@.+\\..+", title: t('users.email_hint')
 
-  .auth-field
-    = f.label :password, t('users.password'), class: "auth-label"
-    = f.password_field :password, class: "auth-input", autocomplete: "new-password"
+  .pwd-check{ data: { controller: "password", password_mismatch_value: t('users.password_mismatch') } }
+    .auth-field
+      = f.label :password, t('users.password'), class: "auth-label"
+      = f.password_field :password, class: "auth-input", autocomplete: "new-password",
+        data: { password_target: "password", action: "input->password#check" }
 
-  .auth-field
-    = f.label :password_confirmation, t('users.password_confirmation'), class: "auth-label"
-    = f.password_field :password_confirmation, class: "auth-input", autocomplete: "new-password"
+    .auth-field
+      = f.label :password_confirmation, t('users.password_confirmation'), class: "auth-label"
+      = f.password_field :password_confirmation, class: "auth-input", autocomplete: "new-password",
+        data: { password_target: "confirmation", action: "input->password#check" }
+      %p.pwd-warning{ data: { password_target: "message" } }
 
   = f.submit t('users.create_account'), class: "auth-submit"

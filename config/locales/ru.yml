@@ -84,6 +84,7 @@ ru:
     please_sign_in: "Пожалуйста, войдите в систему"
 
   users:
+    password_mismatch: "Пароли не совпадают"
     name: "Имя"
     email: "Email"
     password: "Пароль"

@@ -79,6 +79,7 @@ en:
     please_sign_in: "Please sign in"
 
   users:
+    password_mismatch: "Passwords do not match"
     name: "Name"
     email: "Email"
     password: "Password"

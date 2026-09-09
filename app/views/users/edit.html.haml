@@ -25,13 +25,17 @@
         = f.label :current_password, t('profile.current_password'), class: "auth-label"
         = password_field_tag "user[current_password]", nil, class: "auth-input", autocomplete: "current-password"
 
-      .auth-field
-        = f.label :password, t('profile.new_password'), class: "auth-label"
-        = f.password_field :password, class: "auth-input", autocomplete: "new-password"
+      .pwd-check{ data: { controller: "password", password_mismatch_value: t('users.password_mismatch') } }
+        .auth-field
+          = f.label :password, t('profile.new_password'), class: "auth-label"
+          = f.password_field :password, class: "auth-input", autocomplete: "new-password",
+            data: { password_target: "password", action: "input->password#check" }
 
-      .auth-field
-        = f.label :password_confirmation, t('users.password_confirmation'), class: "auth-label"
-        = f.password_field :password_confirmation, class: "auth-input", autocomplete: "new-password"
+        .auth-field
+          = f.label :password_confirmation, t('users.password_confirmation'), class: "auth-label"
+          = f.password_field :password_confirmation, class: "auth-input", autocomplete: "new-password",
+            data: { password_target: "confirmation", action: "input->password#check" }
+          %p.pwd-warning{ data: { password_target: "message" } }
 
       = f.submit t('profile.save'), class: "auth-submit"
 
