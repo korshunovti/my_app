@@ -5,7 +5,13 @@ ru:
     sign_in: "Войти"
     sign_up: "Регистрация"
     sign_out: "Выйти"
-
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      previous: "&lsaquo; Назад"
+      next: "Вперёд &rsaquo;"
+      truncate: "&hellip;"
   gallery:
     total_values: "Оценок:"
     best_of: "Лучшее аниме за"

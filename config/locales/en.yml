@@ -5,7 +5,13 @@ en:
     sign_in: "Sign in"
     sign_up: "Sign up"
     sign_out: "Sign out"
-
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
   gallery:
     total_values: "Ratings:"
     best_of: "Best anime of"

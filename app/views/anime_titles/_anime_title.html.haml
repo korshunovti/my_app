@@ -1,8 +1,0 @@
-%tr
-  %td= image_tag "pictures/#{anime_title.file}", size: "50x50", alt: anime_title.name
-  %td= anime_title.name
-  %td= anime_title.theme.name
-  %td= anime_title.ave_value
-  %td
-    = link_to 'Show', anime_title
-    = link_to 'Edit', edit_anime_title_path(anime_title)

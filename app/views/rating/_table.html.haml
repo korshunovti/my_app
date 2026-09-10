@@ -5,7 +5,6 @@
     - titles.each_with_index do |title, i|
       %li.rank-row{ class: ("is-top" if i < 3) }
         %span.rank-pos= i + 1
-        = image_tag "/assets/#{ERB::Util.url_encode(title.file)}", alt: title.display_name, class: "rank-img"
         .rank-info
           %span.rank-name= title.display_name
           %span.rank-votes= t('rating.votes', count: title.votes_count)

@@ -14,3 +14,6 @@
               = title.theme.display_name
               - if title.ave_value.present?
                 %span.fav-score= title.ave_value.round(1)
+
+    .pagination-wrap
+      = paginate @titles

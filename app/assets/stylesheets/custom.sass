@@ -25,7 +25,7 @@ body
 
   > .container
     flex: 1 0 auto
-    max-width: 1080px
+    max-width: 1400px
     padding-top: 28px
     padding-bottom: 40px
 
@@ -375,12 +375,18 @@ footer
 .rating-page
   padding: 10px 0
 
-.rating-block
-  margin-bottom: 40px
+.rating-grid
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: 20px
+  align-items: start
+
+.rating-col
+  min-width: 0
 
 .rating-head
-  margin-bottom: 16px
-  font-size: 21px
+  margin-bottom: 14px
+  font-size: 16px
   font-weight: 800
   color: #ece7f5
 
@@ -388,25 +394,24 @@ footer
   margin: 0
   padding: 0
   list-style: none
-  counter-reset: rank
 
 .rank-row
   display: flex
   align-items: center
-  gap: 16px
-  padding: 10px 16px
-  margin-bottom: 8px
+  gap: 10px
+  padding: 8px 10px
+  margin-bottom: 6px
   background: rgba(36, 26, 61, 0.8)
   border: 1px solid #3a2b5c
-  border-radius: 12px
+  border-radius: 10px
 
   &.is-top
     border-color: #b93ac4
 
 .rank-pos
   flex-shrink: 0
-  width: 30px
-  font-size: 19px
+  width: 20px
+  font-size: 15px
   font-weight: 800
   color: #a99cc4
   text-align: center
@@ -414,34 +419,36 @@ footer
 .is-top .rank-pos
   color: #e0409a
 
-.rank-img
-  flex-shrink: 0
-  width: 46px
-  height: 64px
-  object-fit: cover
-  border-radius: 7px
-
 .rank-info
   display: flex
   flex-direction: column
-  gap: 3px
+  gap: 2px
   flex: 1
   min-width: 0
 
 .rank-name
-  font-size: 15px
+  font-size: 13px
   font-weight: 700
+  line-height: 1.25
   color: #ece7f5
 
 .rank-votes
-  font-size: 12px
+  font-size: 11px
   color: #a99cc4
 
 .rank-score
   flex-shrink: 0
-  font-size: 22px
+  font-size: 17px
   font-weight: 800
   color: #e0409a
+
+@media (max-width: 1100px)
+  .rating-grid
+    grid-template-columns: repeat(2, 1fr)
+
+@media (max-width: 600px)
+  .rating-grid
+    grid-template-columns: 1fr
 /* ---------- профиль ---------- */
 
 .profile
@@ -658,3 +665,46 @@ footer
 
 .auth-input.is-invalid
   border-color: #d6336c
+/* ---------- пагинация ---------- */
+
+.pagination-wrap
+  margin-top: 30px
+  text-align: center
+
+.pagination
+  display: inline-flex
+  gap: 6px
+  padding: 0
+  margin: 0
+  list-style: none
+
+  span, a
+    display: block
+
+  .page a, .page span,
+  .first a, .prev a, .next a, .last a,
+  .gap
+    display: block
+    min-width: 38px
+    padding: 8px 12px
+    font-size: 14px
+    font-weight: 700
+    color: #cfc6e4
+    text-decoration: none
+    background: rgba(36, 26, 61, 0.8)
+    border: 1px solid #3a2b5c
+    border-radius: 9px
+
+  .page a:hover,
+  .first a:hover, .prev a:hover, .next a:hover, .last a:hover
+    background: #3d2c5e
+    color: #fff
+
+  .page.current span
+    color: #fff
+    background: linear-gradient(90deg, #b93ac4, #e0409a)
+    border-color: transparent
+
+  .gap
+    background: transparent
+    border-color: transparent
